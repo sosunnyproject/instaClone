@@ -9,3 +9,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Webtoon {
+  id        Int      @id @default(autoincrement())
+  title     String
+  year      Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  genre     String?
+
+}

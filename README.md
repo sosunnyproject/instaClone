@@ -53,3 +53,15 @@ npx prisma init
 - install admin (windows): https://www.pgadmin.org/download/pgadmin-4-windows/
 - connect your database url with prisma via `.env` file
 - change `DATABASE_URL` in `.env` : username (db owner name), db name
+
+- vscode extension: install `prisma`
+- write in `prisma/schema.prisma`. it looks similar to graphql, but it's not exactly graphql.
+- next stpe: **prisma migrate**: https://www.prisma.io/docs/concepts/components/prisma-migrate
+- no need to write `--name init` for now.
+
+```bash
+npx prisma migrate dev --name init
+```
+
+- if you get E1000 error: need correct password in .env DATABASE_URL
+- it would generate `migrations` folder and auto-download prisma client because of `dev` command.

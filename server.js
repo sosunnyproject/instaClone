@@ -1,9 +1,16 @@
 import { ApolloServer, gql } from "apollo-server";
+import { PrismaClient } from "@prisma/client";
+
+const client = new PrismaClient();
 
 const typeDefs = gql`
 	type Webtoon {
-		title: String
-		year: Int
+		id: Int!
+		title: String!
+		year: Int!
+		genre: String
+		createdAt: String!
+		updatedAt: String!
 	}
 	type Query {
 		webtoons: [Webtoon]
@@ -17,7 +24,7 @@ const typeDefs = gql`
 
 const resolvers = {
 	Query: {
-		webtoons: () => [],
+		webtoons: () => client.webtoon.findMany(),
 		webtoon: () => ({"title": "hi", "year": 2021})
 	},
 	Mutation: {
