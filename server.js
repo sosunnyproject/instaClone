@@ -17,7 +17,7 @@ const typeDefs = gql`
 		webtoon: Webtoon
 	}
 	type Mutation {
-		createWebtoon(title: String!): Boolean
+		createWebtoon(title: String!, year: Int!, genre: String): Webtoon
 		deleteWebtoon(title: String!): Boolean
 	}
 `;
@@ -28,10 +28,14 @@ const resolvers = {
 		webtoon: () => ({"title": "hi", "year": 2021})
 	},
 	Mutation: {
-		createWebtoon: (root, args) => {
-			console.log(args);
-			return true;
-		},
+		createWebtoon: (root, {title, year, genre}) => 
+			client.webtoon.create({
+				data: {
+					title,
+					year,
+					genre,
+				}
+			}),
 		deleteWebtoon: (_, { title }) => {
 			console.log(title);
 			return true;

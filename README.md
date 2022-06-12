@@ -65,3 +65,16 @@ npx prisma migrate dev --name init
 
 - if you get E1000 error: need correct password in .env DATABASE_URL
 - it would generate `migrations` folder and auto-download prisma client because of `dev` command.
+- test in `studio.apollographql.com`
+
+```
+mutation Mutation($title: String!, $year: Int!, $genre: String) {
+  createWebtoon(title: $title, year: $year, genre: $genre){
+    title
+    year
+    genre
+    id
+    createdAt
+  }
+}
+```
