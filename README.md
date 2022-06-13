@@ -4,6 +4,9 @@
 - [ ] graphQL
 - [ ] prisma
 - [ ] apollo server
+- [ ] React
+- [ ] express
+- [ ] styled component
 
 ```bash
 npm init -y
