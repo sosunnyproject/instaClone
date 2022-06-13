@@ -14,18 +14,19 @@ const typeDefs = gql`
 	}
 	type Query {
 		webtoons: [Webtoon]
-		webtoon: Webtoon
+		webtoon(id: Int!): Webtoon
 	}
 	type Mutation {
 		createWebtoon(title: String!, year: Int!, genre: String): Webtoon
-		deleteWebtoon(title: String!): Boolean
+		deleteWebtoon(id: Int!): Webtoon
+		updateWebtoon(id: Int!, year: Int!): Webtoon
 	}
 `;
 
 const resolvers = {
 	Query: {
 		webtoons: () => client.webtoon.findMany(),
-		webtoon: () => ({"title": "hi", "year": 2021})
+		webtoon: (_, { id }) => client.webtoon.findUnique({ where: { id } })
 	},
 	Mutation: {
 		createWebtoon: (root, {title, year, genre}) => 
@@ -36,10 +37,8 @@ const resolvers = {
 					genre,
 				}
 			}),
-		deleteWebtoon: (_, { title }) => {
-			console.log(title);
-			return true;
-		}
+		deleteWebtoon: (_, { id }) => client.webtoon.delete({ where: { id } }),
+		updateWebtoon: (_, { id, year }) => client.webtoon.update({ where: { id }, data: { year } })
 	}
 };
 
