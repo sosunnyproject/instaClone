@@ -49,13 +49,15 @@ npm install prisma -D
 npx prisma init
 ```
 
-**Install postgresql database, admin**
+### Install postgresql database, admin
 
 - https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 - install (mac): https://postgresapp.com/
 - install admin (windows): https://www.pgadmin.org/download/pgadmin-4-windows/
 - connect your database url with prisma via `.env` file
 - change `DATABASE_URL` in `.env` : username (db owner name), db name
+
+### Install Prisma
 
 - vscode extension: install `prisma`
 - write in `prisma/schema.prisma`. it looks similar to graphql, but it's not exactly graphql.
@@ -80,4 +82,38 @@ mutation Mutation($title: String!, $year: Int!, $genre: String) {
     createdAt
   }
 }
+```
+
+```bash
+npx prisma studio
+```
+
+- Show/Edit Database in Browser: `localhost:5555`
+
+### Organize schema files
+
+```bash
+npm i @graphql-tools/schema @graphql-tools/merge @graphql-tools/load-files
+```
+
+- https://www.graphql-tools.com/docs/schema-merging#file-loading
+- `export default` from database queries/mutation/typeDefs js files
+- import into `schema.js` via `graphql-tools` to load files, merge, and make schema
+
+### Configure virtual environment
+
+- install dotenv
+
+```bash
+npm i dotenv
+```
+
+- run `dotenv` at the top of your app (top of everything)
+- `dotenv` doesn't use import statement because `import` wouldn't execute.
+- write: `require('dotenv').config()`
+- same as
+
+```js
+import dotenv from "dotenv";
+dotenv.config();
 ```
