@@ -114,7 +114,14 @@ JWT
 
 </details>
 
-<br />
+<details>
+<summary> Edit Profile </summary>
+
+</details>
+
+<hr />
+
+## Study Backend Setup
 
 <details>
 <summary> Study Backend Setup </summary>
