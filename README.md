@@ -41,7 +41,8 @@ npm i @babel/core @babel/preset-env @babel/node --save-dev
 
 - make `instaclone` database in your postgreSQL
 
-#### Account
+<details>
+<summary> Create Account </summary>
 
 ```bash
 npx prisma init
@@ -79,6 +80,41 @@ https://pris.ly/d/getting-started
 ```bash
 npm i bcrypt
 ```
+
+</details>
+
+<br />
+
+<details>
+<summary> See Profile</summary>
+
+- write `seeProfile` Query in `users.queries.js`
+
+</details>
+
+<br />
+
+<details>
+<summary> Login </summary>
+
+```bash
+npm i jsonwebtoken
+```
+
+로그인 방법
+
+- token: when server is not connected to frontend, or in separate servers
+- cookie, session: when server/frontend are on the same place
+
+JWT
+
+- issue a token and send it to the user: json web token
+- don't put any private information in token
+- not about secrecy, knowing who signed it
+
+</details>
+
+<br />
 
 <details>
 <summary> Study Backend Setup </summary>
