@@ -8,6 +8,9 @@
 - [ ] express
 - [ ] styled component
 
+<details>
+<summary> Apollo, GraphQL, Babel setup  </summary>
+
 ```bash
 npm init -y
 npm i apollo-server graphql
@@ -36,6 +39,8 @@ npm i @babel/core @babel/preset-env @babel/node --save-dev
 - change `package.json` command to
   - `"dev": "nodemon --exec babel-node server.js"`
 - using babel allows your code available to whatever node version it is.
+
+</details>
 
 ## Backend Setup
 
@@ -83,16 +88,12 @@ npm i bcrypt
 
 </details>
 
-<br />
-
 <details>
 <summary> See Profile</summary>
 
 - write `seeProfile` Query in `users.queries.js`
 
 </details>
-
-<br />
 
 <details>
 <summary> Login </summary>
@@ -116,6 +117,12 @@ JWT
 
 <details>
 <summary> Edit Profile </summary>
+
+- no properties are required
+- prisma doesn't send undefined/null value
+- need to bcrypt.hash new password
+- use async and await, spread operator
+- in resolvers, return correct type (as you wrote in typeDefs)
 
 </details>
 
