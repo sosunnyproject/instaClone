@@ -39,10 +39,45 @@ npm i @babel/core @babel/preset-env @babel/node --save-dev
 
 ## Backend Setup
 
-### Account
+- make `instaclone` database in your postgreSQL
+
+#### Account
 
 ```bash
 npx prisma init
+```
+
+```
+✔ Your Prisma schema was created at prisma/schema.prisma
+  You can now open it in your favorite editor.
+
+warn Prisma would have added DATABASE_URL but it already exists in .env
+warn You already have a .gitignore. Don't forget to exclude .env to not commit any secret.
+
+Next steps:
+1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet,
+read https://pris.ly/d/getting-started
+2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
+3. Run prisma db pull to turn your database schema into a Prisma schema.
+4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+
+More information in our documentation:
+https://pris.ly/d/getting-started
+
+```
+
+- create `Model User` in `schema.prisma` file
+- prisma migrate: `npm run migrate`
+- ready to run server? Not yet. Before that, we need schema, typedefs, resolvers
+- Synchronize Schemas
+  - typeDefs/mutations/queries.js : GRAPHQL Schema
+  - schema.prism: PRISMA Schema
+- always `npm run migrate` whenever you change `schema.prisma`
+- create account in `users.mutations.js`
+- download bcrypt npm for hasing password
+
+```bash
+npm i bcrypt
 ```
 
 <details>
