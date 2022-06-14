@@ -39,6 +39,12 @@ npm i @babel/core @babel/preset-env @babel/node --save-dev
 
 ### Prisma, PostgresQL
 
+- [x] install prisma
+- [x] prisma migrate
+- [x] prisma client
+- [x] create schema.js
+- [x] server.js / client.js
+
 - https://www.prisma.io/
 - ORM: you don't write sql. Talks to database. You write javascript. Prisma translates them into sql.
 - Better to write in Typescript, if you can.
