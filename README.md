@@ -37,7 +37,18 @@ npm i @babel/core @babel/preset-env @babel/node --save-dev
   - `"dev": "nodemon --exec babel-node server.js"`
 - using babel allows your code available to whatever node version it is.
 
-### Prisma, PostgresQL
+## Backend Setup
+
+### Account
+
+```bash
+npx prisma init
+```
+
+<details>
+<summary> Study Backend Setup </summary>
+<br>
+<h2>Prisma, PostgresQL</h2>
 
 - [x] install prisma
 - [x] prisma migrate
@@ -55,7 +66,7 @@ npm install prisma -D
 npx prisma init
 ```
 
-### Install postgresql database, admin
+<h2>Install postgresql database, admin</h2>
 
 - https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 - install (mac): https://postgresapp.com/
@@ -63,7 +74,7 @@ npx prisma init
 - connect your database url with prisma via `.env` file
 - change `DATABASE_URL` in `.env` : username (db owner name), db name
 
-### Install Prisma
+<h2>Install Prisma</h2>
 
 - vscode extension: install `prisma`
 - write in `prisma/schema.prisma`. it looks similar to graphql, but it's not exactly graphql.
@@ -96,7 +107,7 @@ npx prisma studio
 
 - Show/Edit Database in Browser: `localhost:5555`
 
-### Organize schema files
+<h2>Organize schema files</h2>
 
 ```bash
 npm i @graphql-tools/schema @graphql-tools/merge @graphql-tools/load-files
@@ -106,7 +117,7 @@ npm i @graphql-tools/schema @graphql-tools/merge @graphql-tools/load-files
 - `export default` from database queries/mutation/typeDefs js files
 - import into `schema.js` via `graphql-tools` to load files, merge, and make schema
 
-### Configure virtual environment
+<h2>Configure virtual environment</h2>
 
 - install dotenv
 
@@ -123,3 +134,5 @@ npm i dotenv
 import dotenv from "dotenv";
 dotenv.config();
 ```
+
+</details>
