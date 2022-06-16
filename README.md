@@ -142,6 +142,11 @@ JWT
 	- put jwt token inside context, which all resolvers can access
 - BUT LET'S PUT IN HTTP HEADER
 	- `context` can have function inside
+	- [resoler - context](https://www.apollographql.com/docs/apollo-server/data/resolvers#the-context-argument)
+	- WHEN YOU ARE TESTING
+		- Studio ApolloGraphql: Add Authorization token in Headers section
+		- The code will access that token via `req.headers.authorization`
+		- inject auth jwt token into `context request`
 
 
 </details>

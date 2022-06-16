@@ -7,11 +7,12 @@ export default {
 		editProfile: async (
 			_, 
 			{firstName, lastName, username, email, password: newPassword}, 
-		 	{ Authorization } 
+		 	{ authorization } 
 		) => {
 			
+			console.log(authorization)
 			// check the user
-			const { id } = await jwt.verify(Authorization, process.env.SECRET_KEY);
+			const { id } = await jwt.verify(authorization, process.env.SECRET_KEY);
 			// console.log(verifiedToken);
 
 			let uglyPassword = null;
