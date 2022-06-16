@@ -112,6 +112,9 @@ JWT
 - issue a token and send it to the user: json web token
 - don't put any private information in token
 - not about secrecy, knowing who signed it
+- example: 
+	- when editing profile, the user has to send you its token to verify its identification
+	- `jwt.verify(token, process.env.SECRET_KEY)` to check jwt
 
 </details>
 
