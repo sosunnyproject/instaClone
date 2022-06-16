@@ -156,6 +156,14 @@ JWT
 
 </details>
 
+<details>
+<summary> Improve, protect resolvers: currying(es6) </summary>
+- currying
+	- function returns another function
+	- redux uses this
+
+
+</details>
 
 <hr />
 
