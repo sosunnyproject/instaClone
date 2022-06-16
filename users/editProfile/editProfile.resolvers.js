@@ -7,20 +7,18 @@ export default {
 		editProfile: async (
 			_, 
 			{firstName, lastName, username, email, password: newPassword}, 
-		 	{ authorization } 
+		 	{ loggedInUser } 
 		) => {
 			
-			console.log(authorization)
 			// check the user
-			const { id } = await jwt.verify(authorization, process.env.SECRET_KEY);
-			// console.log(verifiedToken);
+			console.log(user)
 
 			let uglyPassword = null;
 			if(newPassword) {
 				uglyPassword = await bcrypt.hash(newPassword, 10);
 			}
 			const updatedUser = await client.user.update({
-				where: { id }, 
+				where: { id: loggedInUser.id }, 
 				data: {firstName, lastName, username, email, ...(uglyPassword && {password: uglyPassword})}
 			})
 

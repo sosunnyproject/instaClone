@@ -123,8 +123,10 @@ JWT
 - need to bcrypt.hash new password
 - use async and await, spread operator
 - in resolvers, return correct type (as you wrote in typeDefs)
+</details>
 
-**JWT**
+<details>
+<summary> JWT TOKEN AUTHORIZATION </summary>
 
 - example: 
 	- when editing profile, the user has to send you its token to verify its identification
@@ -147,9 +149,13 @@ JWT
 		- Studio ApolloGraphql: Add Authorization token in Headers section
 		- The code will access that token via `req.headers.authorization`
 		- inject auth jwt token into `context request`
-
+- IMPROVE!
+	- instead of keep verifying token, what we need is verifying user
+	- `users.utils.js`
+	- pass on `loggedInUser` info via `context` instead.
 
 </details>
+
 
 <hr />
 
