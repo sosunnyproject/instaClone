@@ -112,9 +112,6 @@ JWT
 - issue a token and send it to the user: json web token
 - don't put any private information in token
 - not about secrecy, knowing who signed it
-- example: 
-	- when editing profile, the user has to send you its token to verify its identification
-	- `jwt.verify(token, process.env.SECRET_KEY)` to check jwt
 
 </details>
 
@@ -126,6 +123,26 @@ JWT
 - need to bcrypt.hash new password
 - use async and await, spread operator
 - in resolvers, return correct type (as you wrote in typeDefs)
+
+**JWT**
+
+- example: 
+	- when editing profile, the user has to send you its token to verify its identification
+	- `jwt.verify(token, process.env.SECRET_KEY)` to check jwt
+- BUT we're not going to write token on every mutation
+- SEND TOKEN AUTOMATICALLY
+	- Pass on JWT TOKEN inside HTTP-HEADER
+	- screenshot apollo graphql studio
+![httpheaders]("./static/headerhttp.png");
+
+- HOW ?
+	- graphql accepts 4 parameters: root, args, context, info
+	- `context` is available in all resolvers
+	- WHO is creating graphql ? APOLLO SERVER `server.js`
+	- put jwt token inside context, which all resolvers can access
+- BUT LET'S PUT IN HTTP HEADER
+	- `context` can have function inside
+
 
 </details>
 

@@ -4,16 +4,14 @@ import jwt from "jsonwebtoken";
 
 export default {
 	Mutation: {
-		editProfile: async (_, {
-			firstName,
-			lastName,
-			username,
-			email,
-			password: newPassword,
-			token
-		}) => {
+		editProfile: async (
+			_, 
+			{firstName, lastName, username, email, password: newPassword}, 
+		 	{ Authorization } 
+		) => {
+			
 			// check the user
-			const { id } = await jwt.verify(token, process.env.SECRET_KEY);
+			const { id } = await jwt.verify(Authorization, process.env.SECRET_KEY);
 			// console.log(verifiedToken);
 
 			let uglyPassword = null;
