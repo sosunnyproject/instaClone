@@ -179,6 +179,30 @@ JWT
 
 <details>
 <summary> Apollo Server: File Uploads</summary>
+- [Apollo provides "file uplaods"](https://www.apollographql.com/docs/apollo-server/data/file-uploads/)
+	- we need to use Apollo Schema
+- currently, we're using Prisma Schema
+- Let's allow Apollo Server to create Schema
+- Unknown type "Upload" error:
+	- `npm i apollo-server-express graphql-upload express`
+	- graphql-upload import error: specifically import js class
+		- [stackoverflow](https://stackoverflow.com/questions/72361047/error-no-exports-main-defined-in-graphql-upload-package-json)
+		- edit `editProfile.resolvers` `editProfile.typeDefs` `server.js`
+- if you upload file on Altair, console.log(avatar) on `editProfile.resolver`, you get this
+```
+Promise {
+  {
+    filename: 'D__Vk4qUYAAycbu.jpg',
+    mimetype: 'image/jpeg',
+    encoding: '7bit',
+    createReadStream: [Function: createReadStream]
+  }
+}
+```
+- cool!
+- next steps
+	- user uploads to website, server uploads to AWS
+	- practice: user uploads to website, save to directories, uploads to AWS
 </details>
 
 <hr />
