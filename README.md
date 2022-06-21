@@ -163,6 +163,7 @@ JWT
 	- redux uses this
 </details>
 
+<details>
 <summary> Add Bio/Avatar to User DB model</summary>
 
 - we want to add bio, avatar to editProfile
@@ -174,6 +175,10 @@ JWT
 - run `npm run migrate` `npm run studio` check updated DB
 - check `prisma studio` to see bio, avatar keys
 
+</details>
+
+<details>
+<summary> Apollo Server: File Uploads</summary>
 </details>
 
 <hr />
