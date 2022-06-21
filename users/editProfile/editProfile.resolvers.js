@@ -1,8 +1,11 @@
 import { client } from "../../client";
+import {createWriteStream} from "fs";
 import bcrypt from "bcrypt";
 import { protectedResolver } from "../users.utils";
 // @ts-ignore
 import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
+
+// console.log(process.cwd())
 
 const resolverFn = 
 	async (
@@ -10,7 +13,25 @@ const resolverFn =
 		{firstName, lastName, username, email, password: newPassword, bio, avatar}, 
 		{ loggedInUser } 
 	) => {
-		console.log(avatar)
+		let avatarUrl = null;
+		// console.log(avatar)
+		
+		// File Upload: Avatar Image
+		// Node feature: read uploaded file, write file data, save in local dir
+		// find current dir path with process.cwd()
+		if(avatar) {
+			const { filename, createReadStream } = await avatar;
+			const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
+			const readStream = createReadStream();
+			// save file with unique filename
+			const writeStream = createWriteStream(
+				process.cwd()+ "/uploads/" +  newFilename
+			);
+			readStream.pipe(writeStream)
+
+			// make avatarUrl to save in DB
+			avatarUrl = `http://localhost:4000/static/${newFilename}`;	
+		}
 
 		let uglyPassword = null;
 		if(newPassword) {
@@ -18,7 +39,13 @@ const resolverFn =
 		}
 		const updatedUser = await client.user.update({
 			where: { id: loggedInUser.id }, 
-			data: {firstName, lastName, username, email, bio, ...(uglyPassword && {password: uglyPassword})}
+			data: {firstName, 
+				lastName, 
+				username, 
+				email, 
+				bio, 
+				...(avatarUrl && {avatar: avatarUrl}),
+				...(uglyPassword && {password: uglyPassword})}
 		})
 
 		// return type EditProfileResult
