@@ -16,7 +16,7 @@ const resolverFn =
 		}
 		const updatedUser = await client.user.update({
 			where: { id: loggedInUser.id }, 
-			data: {firstName, lastName, username, email, ...(uglyPassword && {password: uglyPassword})}
+			data: {firstName, lastName, username, email, bio, ...(uglyPassword && {password: uglyPassword})}
 		})
 
 		// return type EditProfileResult

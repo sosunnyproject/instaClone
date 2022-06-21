@@ -161,7 +161,18 @@ JWT
 - currying
 	- function returns another function
 	- redux uses this
+</details>
 
+<summary> Add Bio/Avatar to User DB model</summary>
+
+- we want to add bio, avatar to editProfile
+- change
+	- `prisma/schema.prisma`
+	- bio: words (string), avatar: url to the image (string)
+	- `user.typeDefs.js`: add bio, avatar
+	- `editProfile typeDef & resolver`: add bio 
+- run `npm run migrate` `npm run studio` check updated DB
+- check `prisma studio` to see bio, avatar keys
 
 </details>
 
